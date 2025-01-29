@@ -1,31 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* 基本のスタイル */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f8ff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
   text-align: center;
-  padding: 20px;
+  margin-top: 50px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  margin-right: 10px;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #fff;
-  width: 300px;
 }
 
 button {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #4CAF50;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -38,4 +36,12 @@ button:hover {
 
 #weather-info {
   margin-top: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
 }
