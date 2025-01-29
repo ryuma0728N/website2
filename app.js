@@ -1,33 +1,33 @@
 function fetchWeather() {
   const city = document.getElementById('city-input').value;
   if (!city) {
-    alert('Please enter a city name');
+    alert('都市名を入力してください');
     return;
   }
 
-  const apiKey = 'your_api_key_here';  // 天気APIのAPIキーをここに挿入
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiKey = 'YOUR_API_KEY';  // ここにOpenWeatherMapのAPIキーを貼り付け
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ja`;
 
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       if (data.cod === '404') {
-        document.getElementById('weather-info').innerHTML = 'City not found';
+        document.getElementById('weather-info').innerHTML = '都市が見つかりませんでした';
       } else {
         const temp = data.main.temp;
         const description = data.weather[0].description;
         const humidity = data.main.humidity;
 
         document.getElementById('weather-info').innerHTML = `
-          <h2>${city}</h2>
-          <p>Temperature: ${temp}°C</p>
-          <p>Condition: ${description}</p>
-          <p>Humidity: ${humidity}%</p>
+          <h2>${city}の天気</h2>
+          <p>気温: ${temp}°C</p>
+          <p>天気: ${description}</p>
+          <p>湿度: ${humidity}%</p>
         `;
       }
     })
     .catch(error => {
-      document.getElementById('weather-info').innerHTML = 'Error fetching weather data';
-      console.error('Error:', error);
+      document.getElementById('weather-info').innerHTML = '天気データの取得に失敗しました';
+      console.error('エラー:', error);
     });
 }
